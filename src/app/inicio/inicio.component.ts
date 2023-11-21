@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms'
+import { FormularioService } from '../servicios/formulario.service';
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,7 @@ export class InicioComponent implements OnInit {
 
   formulario:any;
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private ServiceFormulario:FormularioService) { }
 
   ngOnInit(): void {
     this.formulario = this.fb.group({
@@ -27,6 +28,22 @@ export class InicioComponent implements OnInit {
 
   botonEnviar(){
     console.log(this.formulario.value);
+  }
+
+  enviarDatos(){
+    this.ServiceFormulario.crear_datosFormulario(this.formulario.value).subscribe(
+      (response:any)=>{
+        if(response.registro){
+          alert("Datos guardados exitosamente");
+          console.log(response)
+        }else{
+          alert("Datos no registrados")
+        }
+      },
+      error=>{
+        alert("error al registrar")
+      }
+    ) 
   }
 
 }

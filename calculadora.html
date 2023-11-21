@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Promedio</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/estilos.css">
+</head>
+
+<body class="cuerpo">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <img id="img_1" src="./assets/imagenes/logo_cft_estatal.jpeg" alt="logo_cft" width="100">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            href="https://cftestatalaricayparinacota.cl"><strong>Inicio</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://cftestatalaricayparinacota.cl/admision-2/">Admisión</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="true">
+                            Carreras
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item"
+                                    href="https://cftestatalaricayparinacota.cl/tecnico-de-nivel-superior-en-informatica-y-aplicaciones-tecnologicas/">
+                                    TNS en Informática
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                    href="https://cftestatalaricayparinacota.cl/tecnico-de-nivel-superior-en-proyectos-electricos-de-distribucion/">
+                                    TNS de Proyectos Eléctricos de Distribución
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                    href="https://cftestatalaricayparinacota.cl/tecnico-de-nivel-superior-en-fabricacion-y-montaje-de-estructuras-metalicas/">
+                                    TNS en Fabricación y Montaje de Estructuras Metálicas
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                    href="https://cftestatalaricayparinacota.cl/tns-en-obras-civiles/">
+                                    TNS en Obras Civiles
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Contáctanos</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" method="post">
+                    <input class="form-control me-2" type="search" placeholder="Busca tu carrera" aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Calculadora Promedio</h1> <br>
+    <form action="./resultado.html" method="get" onsubmit="return validarFormulario()">
+        <div class="mx-auto" style="max-width: 70%;">
+            <div class="col">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" aria-label="Nombre">
+            </div> <br>
+            <div class="col">
+                <input type="text" class="form-control" name="modulo" placeholder="Modulo" aria-label="Modulo">
+            </div> <br>
+        </div>
+        <div class="mx-auto" style="max-width: 70%;">
+            <table class="table table-dark" style="width: 100%;">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <tr>
+                        <th colspan="3" style="text-align: center;">Notas</th>
+                    </tr>
+                    <tr>
+                        <th id="t1">Unidad (%)</th>
+                        <th id="t2">Nota 1 (%)</th>
+                        <th id="t3">Nota 2 (%)</th>
+                    </tr>
+                    <tr>
+                        <td>Unidad 1 (33%):</td>
+                        <td>
+                            <input type="text" id="1" name="nota_1" placeholder="12%" max="7">
+                        </td>
+                        <td>
+                            <input type="text" id="2" name="nota_2" placeholder="21%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unidad 2 (33%):</td>
+                        <td>
+                            <input type="text" id="3" name="nota_3" placeholder="12%">
+                        </td>
+                        <td>
+                            <input type="text" id="4" name="nota_4" placeholder="21%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unidad 3 (34%):</td>
+                        <td>
+                            <input type="text" id="5" name="nota_5" placeholder="13%">
+                        </td>
+                        <td>
+                            <input type="text" id="6" name="nota_6" placeholder="21%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="boton" colspan="3">
+                            <input class="btn btn-primary btn-block" type="reset" value="Borrar" class="botonpulento"
+                                style="background-color: lightgray; border-color:black ; color: black;" />
+                            <input class="btn btn-primary btn-block" type="submit" onclick="Promedio()" value="Enviar"
+                                class="botonpulento"
+                                style="background-color: lightgray; border-color:black; color: black" />
+                        </td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </form>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/scripts.calculadora.js"></script>
+</body>
+
+</html>
